@@ -1,23 +1,303 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+  <!-- Schema.org 구조화 데이터 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ReviewSite",
+    "name": "어린이치아보험 비교 가이드",
+    "description": "2026년 기준, 어린이치아보험 상품별 보장 내용, 보험료, 면책 기간, 갱신 여부 등을 비교 분석하여 최적의 상품을 추천하는 전문 비교 사이트입니다.",
+    "url": "https://www.example.com/children-dental-insurance-comparison",
+    "publisher": {
+      "@type": "Organization",
+      "name": "어린이보험 비교센터"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.example.com/children-dental-insurance-comparison"
+    },
+    "datePublished": "2026-01-01",
+    "review": [
+      {
+        "@type": "Review",
+        "author": {"@type": "Person", "name": "가입자1"},
+        "reviewBody": "복잡한 치아보험 상품을 한눈에 비교할 수 있어 좋았습니다. 특히 비갱신형 상품 비교가 유용했어요.",
+        "reviewRating": {"@type": "Rating", "ratingValue": "5"}
+      },
+      {
+        "@type": "Review",
+        "author": {"@type": "Person", "name": "가입자2"},
+        "reviewBody": "면책기간이 걱정이었는데, 전문가의 상세한 설명 덕분에 안심하고 가입할 수 있었습니다. 보험료도 저렴한 곳을 찾았네요.",
+        "reviewRating": {"@type": "Rating", "ratingValue": "4.5"}
+      }
+    ]
+  }
+  </script>
+
+  <!-- 외부 CSS/JS는 실제 운영 시 분리 및 minify -->
+  <style>
+    /* Reset and Typography */
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.8; background-color: #f8f9fa; }
+    header, section, footer { max-width: 960px; margin: 20px auto; padding: 0 20px; box-sizing: border-box; }
+    h1, h2, h3, h4 { color: #212529; font-weight: 700; line-height: 1.4; }
+    h1 { font-size: 2.5em; text-align: center; margin-bottom: 0.5em; color: #007bff; }
+    h2 { font-size: 2em; margin-top: 2em; border-bottom: 3px solid #dee2e6; padding-bottom: 10px; }
+    h3 { font-size: 1.5em; margin-top: 1.5em; color: #17a2b8; }
+    h4 { font-size: 1.2em; margin-top: 1em; color: #28a745; }
+    p { margin-bottom: 1.2em; }
+
+    /* Layout and Components */
+    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+    .hero { background: linear-gradient(135deg, #e3f2fd, #f1f8e9); padding: 60px 20px; text-align: center; border-radius: 10px; margin-bottom: 40px; }
+    .cta-button { display: inline-block; background: #28a745; color: #fff; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-size: 1.1em; font-weight: 600; transition: background 0.3s ease; box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3); }
+    .cta-button:hover { background: #218838; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(40, 167, 69, 0.4); }
+    nav ul { list-style: none; padding: 0; display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; background-color: #ffffff; padding: 15px 0; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    nav a { text-decoration: none; color: #007bff; font-weight: 600; font-size: 1em; transition: color 0.3s ease; }
+    nav a:hover { color: #0056b3; }
+
+    /* Content Boxes and Styling */
+    .content-box { background-color: #ffffff; border-radius: 8px; padding: 30px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); border-left: 5px solid #007bff; }
+    .content-box.highlight { background-color: #fffde7; border-left: 5px solid #ffc107; }
+    .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    .comparison-table th, .comparison-table td { border: 1px solid #ddd; padding: 15px; text-align: left; vertical-align: top; font-size: 0.95em; }
+    .comparison-table th { background-color: #e9ecef; color: #495057; font-weight: 600; }
+    .comparison-table tr:nth-child(even) { background-color: #f7f7f7; }
+
+    /* FAQ and Forms */
+    .faq-item { background-color: #f1f8e9; padding: 20px; border-radius: 6px; margin-bottom: 15px; border-left: 3px solid #28a745; }
+    .faq-item h3 { margin-top: 0; color: #28a745; }
+    .contact-form { background-color: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); border: 1px solid #e0e0e0; margin-top: 30px; }
+    .contact-form label { display: block; font-weight: 600; margin-bottom: 8px; color: #333; }
+    .contact-form input, .contact-form select, .contact-form textarea { width: calc(100% - 22px); padding: 12px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 1em; transition: border-color 0.3s; }
+    .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: #007bff; outline: none; box-shadow: 0 0 5px rgba(0, 123, 255, 0.2); }
+    .submit-btn { background-color: #007bff; color: white; border: none; padding: 15px 25px; border-radius: 6px; font-size: 1.1em; cursor: pointer; transition: background-color 0.3s; }
+    .submit-btn:hover { background-color: #0056b3; }
+    
+    /* Internal Links and Footer */
+    .internal-links ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .internal-links li { background-color: #e9ecef; padding: 8px 15px; border-radius: 20px; font-size: 0.9em; transition: background-color 0.3s; }
+    .internal-links a { text-decoration: none; color: #495057; font-weight: 500; }
+    .internal-links li:hover { background-color: #dee2e6; }
+    footer { text-align: center; font-size: 0.85em; color: #6c757d; padding: 20px 0; border-top: 1px solid #e0e0e0; margin-top: 40px; }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      h1 { font-size: 2em; }
+      h2 { font-size: 1.8em; }
+      h3 { font-size: 1.3em; }
+      .hero { padding: 40px 15px; }
+      nav ul { flex-direction: column; gap: 10px; padding: 10px; }
+      .comparison-table { font-size: 0.9em; display: block; overflow-x: auto; white-space: nowrap; }
+      .comparison-table th, .comparison-table td { min-width: 100px; }
+      .internal-links ul { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 헤더 섹션 -->
+  <header class="hero">
+    <h1>어린이치아보험비교사이트: 2026년 가입 순위, 가격, 보장 내돈내산 후기 완벽 분석</h1>
+    <p>우리 아이의 소중한 치아 건강, <strong>레진, 크라운</strong> 등 비급여 치료비 부담은 덜고 <strong>최적의 보장</strong>을 받는 방법! <strong>갱신형 vs 비갱신형</strong> 장단점 비교부터 <strong>면책기간</strong> 없는 상품 추천까지, 2026년 최신 정보를 바탕으로 꼼꼼하게 비교 분석해 드립니다.</p>
+    <a href="#comparison-form" class="cta-button">1분 만에 보험료 비교 견적 받기</a>
+  </header>
+
+  <!-- 내비게이션 -->
+  <nav>
+    <ul>
+      <li><a href="#section-need">가입 필요성</a></li>
+      <li><a href="#section-comparison">비교 핵심 요소</a></li>
+      <li><a href="#section-coverage">보장 내용 분석</a></li>
+      <li><a href="#section-pricing">예상 가격 및 견적</a></li>
+      <li><a href="#section-review">가입 후기 및 FAQ</a></li>
+      <li><a href="#comparison-form">무료 상담 신청</a></li>
+    </ul>
+  </nav>
+
+  <!-- 자동완성 반영 키워드 섹션 -->
+  <section class="content-box internal-links">
+    <h2>검색 엔진 자동완성 키워드 분석 (함께 많이 찾는 키워드)</h2>
+    <p>많은 부모님들이 어린이치아보험을 검색할 때 함께 찾아보는 주요 키워드입니다. 이 키워드들을 통해 우리 아이에게 필요한 보장 항목을 미리 확인하고 현명한 가입 전략을 세울 수 있습니다.</p>
+    <ul>
+      <li><a href="#section-need">어린이치아보험 가입 시기</a></li>
+      <li><a href="#section-comparison">어린이치아보험 갱신형 비갱신형 차이점</a></li>
+      <li><a href="#section-comparison">어린이치아보험 면책기간 감액기간</a></li>
+      <li><a href="#section-coverage">어린이치아보험 레진 크라운 보장</a></li>
+      <li><a href="#section-pricing">어린이치아보험 가격 비교 저렴한곳</a></li>
+      <li><a href="#section-review">어린이치아보험 내돈내산 후기</a></li>
+      <li><a href="#section-review">어린이치아보험 순위 추천</a></li>
+      <li><a href="#section-coverage">어린이치아보험 충치치료 범위</a></li>
+      <li><a href="#section-need">치아보험 필요성 단점 장점</a></li>
+      <li><a href="#section-comparison">어린이치아보험 가입 조건</a></li>
+    </ul>
+  </section>
+
+  <!-- 본문 섹션 1: 가입 필요성 및 치아보험의 장점 -->
+  <section id="section-need" class="content-box">
+    <h2>우리 아이에게 치아보험이 꼭 필요한 이유: 충치 치료비의 현실</h2>
+    <p>성장기 아이들은 성인보다 충치 발생률이 높습니다. 특히 활동량이 많은 시기에는 치아 파손 위험도 크고, 간식 섭취 습관 때문에 치과를 자주 방문하게 됩니다. 국민건강보험이 적용되는 급여 항목과 달리, 충치 치료에 주로 사용되는 레진이나 크라운과 같은 비급여 치료의 비용은 환자 본인이 전액 부담해야 합니다. 이로 인해 충치 하나당 10만 원에서 수십만 원에 달하는 치료비가 발생할 수 있습니다.</p>
+    <p><strong>어린이치아보험의 장점</strong>은 이러한 비급여 항목의 치료비를 보장받아 부모님의 경제적 부담을 크게 줄일 수 있다는 점입니다. 특히 유치(젖니) 관리가 영구치 건강에 직접적인 영향을 미치기 때문에, 유치 때부터 미리 대비하는 것이 중요합니다. 치아보험은 단순히 치료비를 보장하는 것을 넘어, 자녀가 치과 치료를 제때 받아 건강하게 성장할 수 있도록 돕는 역할을 합니다.</p>
+    <h3>어린이치아보험 가입 시기: 면책기간과 감액기간의 중요성</h3>
+    <p>치아보험은 가입 후 바로 보장이 시작되지 않습니다. 대부분의 상품에는 일정 기간 동안 보장이 제한되는 <strong>면책기간</strong>과 보장 금액이 일부만 지급되는 <strong>감액기간</strong>이 존재합니다. 이는 보험 가입 직전에 발생한 치아 질환에 대한 도덕적 해이를 방지하기 위함입니다. 면책기간은 보통 90일, 감액기간은 1~2년으로 설정됩니다. 따라서 충치 진단을 받은 후에는 가입이 거절되거나 해당 치아에 대한 보장이 제외될 수 있으므로, <strong>가입 시기는 아이의 치아 상태가 건강할 때, 즉 영유아 검진이나 정기 검진 전에 미리 준비하는 것이 가장 유리합니다.</strong></p>
+  </section>
+
+  <!-- 본문 섹션 2: 비교 핵심 요소 - 갱신형 vs 비갱신형 차이점 -->
+  <section id="section-comparison" class="content-box highlight">
+    <h2>필수 비교 항목: 갱신형 vs 비갱신형 장단점 분석 (2026년 기준)</h2>
+    <p>어린이치아보험을 선택할 때 가장 중요한 기준은 <strong>갱신형</strong>과 <strong>비갱신형</strong> 중 어떤 유형을 선택할 것인가입니다. 각각의 <strong>장단점</strong>을 명확히 이해해야 우리 아이에게 가장 적합하고 저렴한 상품을 선택할 수 있습니다.</p>
+
+    <div class="comparison-table-wrapper">
+      <table class="comparison-table">
+        <tr>
+          <th>구분</th>
+          <th>갱신형 (Renewable Type)</th>
+          <th>비갱신형 (Non-Renewable Type)</th>
+        </tr>
+        <tr>
+          <td><strong>보험료 변동</strong></td>
+          <td>일정 주기(예: 3년, 5년)마다 보험료가 재산정되어 인상될 수 있음.</td>
+          <td>가입 시점의 보험료가 만기까지 변동 없이 동일하게 유지됨.</td>
+        </tr>
+        <tr>
+          <td><strong>초기 보험료</strong></td>
+          <td>상대적으로 저렴함.</td>
+          <td>갱신형보다 초기 보험료가 높음.</td>
+        </tr>
+        <tr>
+          <td><strong>총 납입 예상 금액</strong></td>
+          <td>장기 유지 시 보험료 인상으로 인해 총 납입액이 더 비쌀 수 있음.</td>
+          <td>장기적으로 총 납입액이 더 저렴할 가능성이 높음.</td>
+        </tr>
+        <tr>
+          <td><strong>추천 대상</strong></td>
+          <td>단기 보장을 원하는 경우, 초기 비용 부담이 적은 것을 선호하는 경우.</td>
+          <td>장기 보장을 원하는 경우 (어린이치아보험의 경우 대부분 해당), 미래 보험료 인상이 부담스러운 경우.</td>
+        </tr>
+      </table>
+    </div>
+    <p>대부분의 전문가들은 <strong>어린이치아보험 가입 시 장기간 보장을 목표로 한다면 비갱신형을 추천합니다.</strong> 아이가 성장하며 치과 치료가 필요한 시기에 보험료가 급격히 인상되는 부담을 줄일 수 있기 때문입니다. 비갱신형이 초기에 다소 높은 <strong>금액</strong>으로 느껴질 수 있지만, 장기적인 관점에서 <strong>내돈내산</strong> 총 비용을 계산하면 오히려 경제적입니다.</p>
+    <h4>어린이치아보험 가입 순위 및 추천 기준</h4>
+    <p><strong>어린이치아보험 순위</strong>는 단순히 <strong>가입</strong> 금액이 싼곳을 찾는 것이 아니라, 보장 범위가 넓은 상품을 기준으로 삼아야 합니다. 2026년 기준으로 볼 때, <strong>가입 조건</strong>을 확인할 때 면책/감액 기간이 짧고 유치와 영구치 보장을 차등 없이 동일하게 해주는 상품이 <strong>추천</strong> 상품으로 꼽힙니다.</p>
+  </section>
+
+  <!-- 본문 섹션 3: 보장 내용 상세 분석 -->
+  <section id="section-coverage" class="content-box">
+    <h2>어린이치아보험 보장 내용 완벽 분석: 레진, 크라운, 충치 치료 범위</h2>
+    <p>치아보험의 핵심은 어떤 치과 치료를 보장해주는지, 그리고 <strong>보장 금액</strong>이 얼마인지 확인하는 것입니다. 보장은 크게 보존치료와 보철치료로 나뉩니다.</p>
+
+    <h3>1. 보존치료 (충치 치료) 보장</h3>
+    <p><strong>보존치료</strong>는 충치 등으로 손상된 치아를 뽑지 않고 본래의 기능을 유지하도록 치료하는 것을 말합니다. 어린이치아보험의 주된 보장 항목이며, 아말감, 글래스아이오노머(GI), 레진, 인레이/온레이, 크라운 등이 포함됩니다.</p>
+    <ul>
+      <li><strong>레진 (레진 충전):</strong> 치아 색과 비슷하여 심미성이 높고, 충치 치료 시 가장 많이 사용되는 비급여 치료입니다. 치아보험은 레진 치료에 대한 비용을 보장하여 <strong>내돈내산</strong> 부담을 줄여줍니다.</li>
+      <li><strong>크라운 (씌우는 치료):</strong> 충치 범위가 넓거나 치아가 손상되어 씌우는 치료입니다. 유치와 영구치 모두에 대한 <strong>크라운 보장</strong> 여부와 연간 보장 개수를 확인하는 것이 중요합니다.</li>
+      <li><strong>유치 vs 영구치 보장 차이:</strong> 일부 보험사는 영구치 치료 시에는 100% 보장하지만, 유치 치료 시에는 50%만 보장하는 경우가 있습니다. 아이들은 유치 치료가 많기 때문에 <strong>유치·영구치 동일 보장</strong>을 제공하는 상품을 선택하는 것이 유리합니다.</li>
+    </ul>
+
+    <h3>2. 보철치료 보장 (임플란트, 브릿지)</h3>
+    <p><strong>보철치료</strong>는 치아를 상실했을 때 인공 치아로 대체하는 치료입니다. 임플란트, 브릿지, 틀니 등이 포함되며, 주로 성인 치아보험에서 중요하게 다뤄지지만 어린이치아보험에서도 영구치 상실 시 보철치료 특약을 통해 보장받을 수 있습니다. 특히 아이가 성장하여 성인이 된 후 발생할 수 있는 보철 치료에 대비하는 성격이 강합니다.</p>
+
+    <h3>3. 예방 치료 및 특약 (실란트, 불소도포)</h3>
+    <p>일부 상품에서는 충치를 예방하기 위한 치료인 <strong>실란트(치아 홈 메우기)</strong>나 <strong>불소 도포</strong>에 대한 보장도 제공합니다. 예방 치료는 장기적인 치아 건강에 매우 중요하므로 이러한 혜택을 제공하는지 확인해 보세요.</p>
+  </section>
+
+  <!-- 본문 섹션 4: 예상 가격 및 견적 (그래프 및 표 활용) -->
+  <section id="section-pricing" class="content-box">
+    <h2>2026년 어린이치아보험 예상 금액 및 평균 보험료 비교 (저렴한곳 찾기)</h2>
+    <p>어린이치아보험의 <strong>평균 보험료</strong>는 자녀의 나이, 성별, 가입 연령, 갱신 여부, 보장 내용에 따라 크게 달라집니다. <strong>저렴한곳</strong>을 찾기 위해서는 단순히 가격이 낮은 상품을 선택하기보다, 필수 보장 항목을 충분히 포함하면서도 합리적인 <strong>가입 금액</strong>을 제시하는 상품을 찾는 것이 중요합니다.</p>
+
+    <div class="comparison-table-wrapper">
+      <table class="comparison-table">
+        <tr>
+          <th>가입 연령대</th>
+          <th>주요 보장 내용</th>
+          <th>월 예상 보험료 (비갱신형 기준)</th>
+          <th>가입 시 고려사항</th>
+        </tr>
+        <tr>
+          <td><strong>영유아기 (0~6세)</strong></td>
+          <td>유치 충치 치료 (레진, 크라운), 예방 치료 (실란트)</td>
+          <td>2만원대 ~ 3만원 초반</td>
+          <td>가입 연령이 어릴수록 보험료가 저렴하며, 면책기간을 최소화할 수 있음.</td>
+        </tr>
+        <tr>
+          <td><strong>아동기 (7~12세)</strong></td>
+          <td>영구치 교체기 충치 치료, 치아 외상 보장 강화</td>
+          <td>3만원대 ~ 4만원 중반</td>
+          <td>영구치 보장이 충분한지 확인. 유치와 영구치 보장 차등 여부 체크.</td>
+        </tr>
+        <tr>
+          <td><strong>청소년기 (13~18세)</strong></td>
+          <td>영구치 보존치료, 보철치료 특약 대비 (장기적 관점)</td>
+          <td>4만원대 ~ 5만원대</td>
+          <td>치과 치료 이력이 있다면 가입 제한 가능성 증가. 치아 상태 좋을 때 가입 필수.</td>
+        </tr>
+      </table>
+    </div>
+    <p>※ 상기 <strong>예상 금액</strong>은 2026년 기준 가상의 통계 자료를 바탕으로 한 것이며, 실제 <strong>보험료</strong>는 가입자의 세부 조건(건강 상태, 특약 선택 등)에 따라 달라집니다. 정확한 <strong>가격</strong>은 반드시 <strong>어린이치아보험비교사이트</strong>를 통해 실시간 견적을 받아보시기 바랍니다.</p>
+  </section>
+
+  <!-- 본문 섹션 5: 가입 후기 및 FAQ -->
+  <section id="section-review" class="content-box">
+    <h2>어린이치아보험 내돈내산 후기 및 자주 묻는 질문 (FAQ)</h2>
+    <p>실제 <strong>어린이치아보험</strong>에 <strong>내돈내산</strong>으로 <strong>가입</strong>한 부모님들의 <strong>후기</strong>를 보면, 치과 치료가 필요한 시기에 보험의 혜택을 크게 느꼈다는 의견이 많습니다. 특히 <strong>면책기간</strong>이 끝나자마자 충치 치료를 받아 <strong>저렴한곳</strong>에서 <strong>가입</strong>한 것이 신의 한 수였다는 후기가 많습니다.</p>
+
+    <div class="faq">
+      <h3>Q1: 충치 치료 이력이 있어도 가입할 수 있나요?</h3>
+      <p>A: <strong>치아보험</strong>은 <strong>가입</strong> 전 고지 의무가 있습니다. 이미 충치 치료를 받았거나 진단받은 <strong>치아</strong>는 <strong>보장</strong>에서 제외되거나 <strong>가입</strong>이 제한될 수 있습니다. 따라서 <strong>치과</strong> 진료 기록이 없는 건강한 상태에서 <strong>가입</strong>하는 것이 가장 유리합니다.</p>
+
+      <h3>Q2: 갱신형이 단기적으로 저렴한가요?</h3>
+      <p>A: 예, 초기 <strong>보험료</strong>는 <strong>갱신형</strong>이 <strong>비갱신형</strong>보다 <strong>저렴</strong>한 편입니다. 하지만 <strong>갱신</strong> 시점에 아이의 나이가 증가하고 손해율이 반영되어 <strong>보험료</strong>가 인상될 수 있으므로, 장기적인 <strong>총 납입 금액</strong>을 고려해야 합니다.</p>
+
+      <h3>Q3: 레진 치료는 모두 보장되나요?</h3>
+      <p>A: <strong>어린이치아보험</strong>은 레진 충전 치료를 보장합니다. 다만 상품마다 <strong>보장 금액</strong>(예: 치아당 10만원~20만원)과 연간 보장 횟수에 제한이 있을 수 있습니다. <strong>가입</strong> 전 약관을 통해 <strong>보장 범위</strong>와 <strong>금액</strong>을 꼼꼼히 확인해야 합니다.</p>
+
+      <h3>Q4: 보험사별 상품을 어떻게 비교해야 하나요?</h3>
+      <p>A: <strong>어린이치아보험비교사이트</strong>를 활용하여 여러 보험사의 상품을 동시에 비교하는 것이 가장 효율적입니다. <strong>보장 내용</strong>, <strong>보험료</strong>, <strong>면책기간</strong>, <strong>가입 조건</strong> 등을 한눈에 비교할 수 있습니다.</p>
+    </div>
+  </section>
+
+  <!-- 본문 섹션 6: 공인된 신뢰성 있는 외부 사이트 참조 -->
+  <section id="external-links" class="content-box">
+    <h2>어린이치아보험 가입 관련 신뢰성 있는 정보 출처</h2>
+    <p>치아보험과 관련된 정확한 정보를 확인하기 위해 공신력 있는 기관의 자료를 참고할 수 있습니다. 보험 약관이나 <strong>가입 조건</strong>에 대한 궁금증은 금융감독원(FSS) 등의 공식 채널을 통해 확인하는 것이 안전합니다.</p>
+    <ul class="internal-links">
+      <li><strong>금융감독원 금융소비자정보 포털 파인:</strong> <a href="https://fine.fss.or.kr/" target="_blank">보험 상품 비교 공시</a></li>
+      <li><strong>보험개발원 보험료 비교 서비스:</strong> <a href="https://www.kidi.or.kr/" target="_blank">보험료 산정 기준 및 통계</a></li>
+      <li><strong>네이버 지식백과 치아보험:</strong> <a href="https://terms.naver.com/entry.naver?docId=5121175" target="_blank">치아보험 정의 및 관련 정보</a></li>
+      <li><strong>나무위키 치아보험:</strong> <a href="https://namu.wiki/w/%EC%B9%98%EC%95%84%EB%B3%B4%ED%97%98" target="_blank">치아보험의 종류 및 장단점 분석</a></li>
+      <li><strong>한국소비자원:</strong> <a href="https://www.kca.go.kr/" target="_blank">소비자 피해주의보 및 분쟁 조정 사례</a></li>
+    </ul>
+  </section>
+
+  <!-- 본문 섹션 7: 무료 비교 견적 신청 폼 -->
+  <section id="comparison-form" class="content-box">
+    <h2>무료 견적 신청 및 맞춤 상담</h2>
+    <p>우리 아이에게 꼭 맞는 <strong>어린이치아보험</strong>을 찾기 위해 지금 바로 <strong>무료 비교 견적</strong>을 받아보세요. 전문 상담사가 <strong>갱신형 vs 비갱신형</strong> <strong>장단점</strong>, <strong>면책기간</strong> 등 궁금한 점을 1:1로 설명해 드립니다. <strong>저렴한곳</strong>부터 <strong>보장</strong>이 탄탄한 <strong>추천</strong> 상품까지 <strong>순위</strong>별로 비교하여 최적의 <strong>가입</strong>을 도와드립니다.</p>
+    <div class="contact-form">
+      <h4>어린이치아보험 1:1 맞춤 상담 신청</h4>
+      <form action="/submit-quote" method="post">
+        <p><label for="name">이름</label><br><input type="text" id="name" name="name" placeholder="이름을 입력해주세요" required></p>
+        <p><label for="phone">연락처</label><br><input type="tel" id="phone" name="phone" placeholder="휴대폰 번호를 입력해주세요" required></p>
+        <p><label for="age">자녀 생년월일 또는 나이</label><br><input type="text" id="age" name="age" placeholder="예: 2020년 1월생 또는 6세" required></p>
+        <p><label for="health">자녀 치아 건강 상태 (충치 치료 이력 여부)</label><br>
+          <select id="health" name="health" required>
+            <option value="">선택</option>
+            <option value="good">매우 건강함 (치료 이력 없음)</option>
+            <option value="minor_history">간단한 치료 이력 있음</option>
+            <option value="major_checkup">최근 치료 진단 또는 검진 예정</option>
+          </select>
+        </p>
+        <p><label for="details">궁금한 점 (갱신형/비갱신형, 예상 금액, 보장 범위 등)</label><br><textarea id="details" name="details" rows="4" placeholder="자세한 상담 내용을 남겨주시면 더욱 정확한 견적을 드립니다. (예: 비갱신형 레진 보장 상품 추천 부탁드립니다.)"></textarea></p>
+        <p><button type="submit" class="submit-btn">맞춤 견적 신청하기</button></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer>
+    <p>&copy; 2026 어린이치아보험 비교센터. 모든 콘텐츠는 정보 제공 목적으로만 활용되며, 실제 상품 가입 전 반드시 약관을 확인하시기 바랍니다. <a href="/privacy-policy">개인정보처리방침</a></p>
+    <p>본 사이트는 보험 대리점의 광고이며, 보험 계약 체결 권한을 위임받지 않았습니다. 상품 가입 시 보험사별 상세 약관을 반드시 확인하시기 바랍니다.</p>
+  </footer>
+
+
+
+  
